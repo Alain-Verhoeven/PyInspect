@@ -1,8 +1,8 @@
-from pydantic import EmailStr
+from pydantic import EmailStr,BaseModel
 from email.mime.text import MIMEText
 from aiosmtplib import SMTP
+from fastapi import APIRouter,HTTPException
 
-from server.services.authentication import *
 
 email_router = APIRouter()
 

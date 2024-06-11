@@ -1,5 +1,5 @@
-from server.services.authentication import *
-from fastapi import Request
+from myserver.services.authentication import *
+from fastapi import Request,APIRouter
 
 auth_router = APIRouter()
 
@@ -17,8 +17,9 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     return {"access_token": user.username, "token_type": "bearer"}
 
 @auth_router.post('/auth')
-async def auth(request: Request):
-    print('>auth')
+async def auth(request: Request,token = Depends(oauth2_scheme)):
+    print(f'>auth toke={token}')
+    print(request.headers)
 
 
 

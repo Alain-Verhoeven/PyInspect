@@ -6,9 +6,9 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from server.controllers.authentication import auth_router
-from server.communication.email import email_router
-from server.controllers.register import register_router
+from myserver.communication.email import email_router
+from myserver.controllers.authentication import auth_router
+from myserver.controllers.register import register_router
 
 origins = [
     "http://127.0.0.1:8000/protected",
@@ -54,6 +54,30 @@ async def custom_404_handler(request: Request, exc):
 
 
 
+
+# db = NanoDB('mydatabase.db')
+# db.insert({'name': 'John', 'age': 30})
+#
+# db.insert_many([
+#     {'name': 'Alice', 'age': 25},
+#     {'name': 'Bob', 'age': 35}
+# ])
+#
+# result = db.find_one({'name': 'John'})
+# print(result)
+#
+# results = db.find({'age': {'$gt': 25}})
+# for doc in results:
+#     print(doc)
+
+
+
+
+
+
+
+
+
 # @app.get('/a')
 # def home(request: Request):
 #     print('>/')
@@ -61,6 +85,7 @@ async def custom_404_handler(request: Request, exc):
 #     if user:
 #         return JSONResponse(content=user)
 #     return RedirectResponse(url='/login')
+
 
 
 
