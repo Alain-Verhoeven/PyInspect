@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF Protected Form</title>
+</head>
+<body>
+    <form action="/process" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <!-- other form fields -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<script src="/static/js/login.js"></script>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" action="/auth" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <p></p>
+    <h1>New account</h1>
+    <form id="registerForm" action ="/register" method="post">
+        <button type="submit" >Register</button>
+    </form>
+</body>
+<!-- <script src="/static/js/login.js"></script> -->
+</html>
+

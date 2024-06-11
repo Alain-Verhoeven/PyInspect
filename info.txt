@@ -1,0 +1,69 @@
+import uvicorn
+import asyncio
+
+from fastapi import FastAPI
+from fastapi import BackgroundTasks
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
+
+from Security.OAuth2 import OAuth2_router
+from Security.register import register_router
+
+from dnsupdater.update import update_dns
+
+from misc.helpers import ShowTime
+
+templates = Jinja2Templates(directory="templates")
+origins = [
+    "http://192.168.68.75/",
+    ]
+
+
+
+app = FastAPI()  # app = FastAPI(docs_url="/uitleg", redoc_url="/redoc")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Authorization", "Content-Type"],
+)
+app.mount("/css", StaticFiles(directory="static/css"), name="css")
+app.mount("/js", StaticFiles(directory="static/js"), name="js")
+
+app.include_router(OAuth2_router, prefix="", tags=["Autorization"])
+app.include_router(register_router,prefix="",tags=["Register"])
+
+def periodic_task(background_tasks: BackgroundTasks):
+    background_tasks.add_task(update_dns)
+    # You can add additional periodic tasks here if needed
+
+
+# Start the periodic task when the server starts
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(update_dns())
+
+@app.get("/PyInspect")
+def read_root():
+    content = """
+    <html>
+        <head>
+            <title>Redirect Page</title>
+            <meta http-equiv="refresh" content="2;url=/registerpage" />
+        </head>
+        <body>
+            <h1>Welcome to PyInspect</h1>
+            <p>You will be redirected to the registration page in 2 seconds...</p>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=content)
+    #return {"the actual time": ShowTime()}
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='0.0.0.0', port=8000)
+    #uvicorn.run(app)
