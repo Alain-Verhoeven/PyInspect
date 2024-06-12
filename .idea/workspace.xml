@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77b24737-6148-489b-98bb-6499653f4dc9" name="Changes" comment="PyInspect initial">
+    <list default="true" id="77b24737-6148-489b-98bb-6499653f4dc9" name="Changes" comment="new structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/communication/email.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/communication/email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/controllers/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/controllers/register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/mainx.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/mainx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/services/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/services/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/services/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/services/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myserver/controllers/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/controllers/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myserver/services/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/myserver/services/authentication.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +37,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main (1).executor": "Debug",
-    "Python.main.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/alain/Python/PyInspect/server",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main (1).executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alain/Python/PyInspect/server&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server" />
@@ -151,25 +147,52 @@
       <option name="project" value="LOCAL" />
       <updated>1718083764120</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="new structure">
+      <option name="closed" value="true" />
+      <created>1718133542105</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718133542105</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="PyInspect initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="PyInspect initial" />
+    <MESSAGE value="new structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="new structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>92</line>
+          <line>87</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>106</line>
+          <line>101</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/myserver/controllers/database.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/myserver/controllers/authentication.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/myserver/controllers/authentication.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
