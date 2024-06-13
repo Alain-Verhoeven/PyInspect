@@ -9,4 +9,4 @@ register_router = APIRouter()
 @register_router.post("/register")
 async def register(request:Request):
     print('<register>')
-    return templates.TemplateResponse("views/register.html", {"request": request})
+    return templates.TemplateResponse("views/index.html", {"request": request})

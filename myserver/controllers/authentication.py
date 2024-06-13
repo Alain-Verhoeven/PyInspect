@@ -2,8 +2,10 @@ import httpx
 
 from myserver.services.authentication import *
 from fastapi import Request,APIRouter
-
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import  HTMLResponse,RedirectResponse
 auth_router = APIRouter()
+templates = Jinja2Templates(directory="templates")
 
 if not SECRET_KEY:
     raise ValueError("SECRET_KEY environment variable is not set")
@@ -22,14 +24,24 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
         return {"access_token": access_token, "token_type": "bearer"}
     else:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
+            status_code=status.HTTP_401_UNprotectedAUTHORIZED,
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
 
 @auth_router.get("/protected")
-async def read_protected_route(current_user: TokenData = Depends(get_current_user)):
-    return {"message": "Access granted", "user": current_user.username}
+async def read_protected_route(request:Request,current_user: TokenData = Depends(get_current_user)):
+    print('protected>')
+    print(request)
+    print(current_user)
+
+@auth_router.get("/register")
+async def new_page(request: Request,current_user: TokenData = Depends(get_current_user)):
+    print("register>")
+    #return templates.TemplateResponse("views/index.html", {"request": request})
+    return {"url":"/static/views/register.html"}
+
+    # return {"message": "Access granted", "user": current_user.username}
 
 # @auth_router.post("/login")
 # async def login(form_data: OAuth2PasswordRequestForm = Depends()):
@@ -43,13 +55,13 @@ async def read_protected_route(current_user: TokenData = Depends(get_current_use
 #         raise HTTPException(status_code=400, detail="Incorrect username or password")
 #     user = UserInDB(**user_dict)
 #     hashed_password = fake_hash_password(form_data.password)
-#     if hashed_password != user.hashed_password:
+#     if hashed_password != user.hashed_password:       redirectToRegister(token)
 #         raise HTTPException(status_code=400, detail="Incorrect username or password")
 #
 #     return {"access_token": user.username, "token_type": "bearer"}
 #
 # @auth_router.post('/auth')
-# async def auth(request: Request):
+# async def auth(request: Request):       redirectToRegister(token)
 #     form_data = {
 #         "username": "Alain",
 #         "password": "1234"
@@ -77,7 +89,7 @@ async def read_protected_route(current_user: TokenData = Depends(get_current_use
 #     user = get_user(fake_users_db, form_data.username)
 #     if not user or not verify_password(form_data.password, user.hashed_password):
 #         raise HTTPException(status_code=400, detail="Incorrect username or password")
-#     access_token = create_access_token(data={"sub": user.username,"email":user.email})
+#     access_token = create_access_token(data={"sub": user.username,"email":user.ebugemail})
 #     print(f'access_token:{access_token}')
 #     return {"access_token": access_token, "token_type": "bearer"}
 
